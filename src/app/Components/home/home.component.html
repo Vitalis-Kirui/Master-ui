@@ -3,18 +3,18 @@
     <!-- Create a post form -->
     <div class="col-md-8 mx-auto">
 
-        <form action="">
+        <form action="" [formGroup]="postForm" (ngSubmit)="createPost()">
 
             <!-- Caption -->
             <div class="form-group mb-1 my-3">
                 <label for="">Post</label> <br>
-                <textarea name="message" id="" cols="81" rows="5"></textarea>
+                <textarea name="message" id="" cols="81" rows="5" name="post" formControlName="post"></textarea>
             </div>
 
             <!-- Image -->
             <div class="form-group mb-1 my-3">
                 <label for="">Attach Image</label>
-                <input type="file" class="form-control">
+                <input type="file" class="form-control" name="image" formControlName="image">
             </div>
 
             <!-- Post button -->
