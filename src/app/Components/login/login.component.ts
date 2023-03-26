@@ -5,35 +5,29 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
   // Form variables
   loginForm!: FormGroup;
 
-  constructor(private router: Router, private fbService:FormBuilder) { }
+  constructor(private router: Router, private fbService: FormBuilder) {}
 
   // Go to register page
-  gotoregister(){
+  gotoregister() {
     this.router.navigate(['register']);
   }
 
   ngOnInit() {
-
     // Login form model
     this.loginForm = this.fbService.group({
-      username:[""],
-      password:[""]
-    })
-
+      username: [''],
+      password: [''],
+    });
   }
 
   // Login function
-  loginUser(){
-
+  loginUser() {
     console.log(this.loginForm.value);
-
   }
-
 }
