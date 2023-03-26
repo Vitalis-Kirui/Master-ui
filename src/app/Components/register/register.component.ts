@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,14 +9,36 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  // Form variables
+  registerForm!:FormGroup;
+
+  constructor(private router:Router, private fbService:FormBuilder) { }
 
   // Go to login page
   gotologin(){
     this.router.navigate(['login']);
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+
+    // Form model
+    this.registerForm = this.fbService.group({
+      names:[""],
+      username:[""],
+      email:[""],
+      phonenumber:[""],
+      password:[""],
+      confirmpassword:[""],
+      subscribe:[""]
+    })
+
+  }
+
+  // Register user function
+  registerUser(){
+    
+    console.log(this.registerForm.value);
+    
   }
 
 }

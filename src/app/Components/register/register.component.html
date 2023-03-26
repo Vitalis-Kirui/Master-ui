@@ -11,42 +11,42 @@
 
         <div class="form">
 
-            <form action="">
+            <form action="" [formGroup]="registerForm" (ngSubmit)="registerUser()">
 
                 <!-- Names -->
                 <div class="form-group mb-1 my-3">
                     <label for="">Names</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="names" formControlName="names">
                 </div>
 
                 <!-- Username -->
                 <div class="form-group mb-1 my-3">
                     <label for="">Username</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="username" formControlName="username">
                 </div>
 
                 <!-- Email -->
                 <div class="form-group mb-1 my-3">
                     <label for="">Email address</label>
-                    <input type="email" class="form-control">
+                    <input type="email" class="form-control" name="email" formControlName="email">
                 </div>
 
                 <!-- Phone Number -->
                 <div class="form-group mb-1 my-3">
                     <label for="">Phone Number</label>
-                    <input type="number" class="form-control">
+                    <input type="number" class="form-control" name="phonenumber" formControlName="phonenumber">
                 </div>
 
                 <!-- Password -->
                 <div class="form-group mb-1 my-3">
                     <label for="">Password</label>
-                    <input type="password" class="form-control">
+                    <input type="password" class="form-control" name="password" formControlName="password">
                 </div>
 
                 <!-- Confirm password -->
                 <div class="form-group mb-1 my-3">
                     <label for="">Confirm Password</label>
-                    <input type="password" class="form-control">
+                    <input type="password" class="form-control" name="confirmpassword" formControlName="confirmpassword">
                 </div>
 
                 <!-- Subscribe to notifications -->
