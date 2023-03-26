@@ -9,6 +9,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { VerifyComponent } from './Components/verify/verify.component';
 import { SinglePostComponent } from './Components/single-post/single-post.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     LoginComponent,
     VerifyComponent,
-    SinglePostComponent
+    SinglePostComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
