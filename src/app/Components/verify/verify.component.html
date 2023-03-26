@@ -9,12 +9,12 @@
         </div>
 
         <!-- Phone Number Form -->
-        <form action="">
+        <form action="" [formGroup]="phonenumberForm" (ngSubmit)="verifyPhonenumber()">
 
             <!-- Phone number -->
             <div class="form-group mb-1 my-3">
                 <label for="">Phone Number</label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" name="phonenumber" formControlName="phonenumber">
             </div>
 
             <!-- Verify phone number button -->
@@ -25,12 +25,12 @@
         <hr class="py-3">
 
         <!-- Email address form -->
-        <form action="">
+        <form action="" [formGroup]="emailForm" (ngSubmit)="verifyEmail()">
 
             <!-- Email address -->
             <div class="form-group mb-1 my-3">
                 <label for="">Email Address</label>
-                <input type="email" class="form-control">
+                <input type="email" class="form-control" name="email" formControlName="email">
             </div>
 
             <!-- Verify button -->
