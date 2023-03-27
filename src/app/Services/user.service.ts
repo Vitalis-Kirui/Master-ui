@@ -19,4 +19,10 @@ export class UserService {
   login(userlogins: any) {
     return this.http.post<any>(environment.login, userlogins);
   };
+
+  // Checking if user is logged in
+  loggedIn(){
+    return !!localStorage.getItem('token')
+  };
+
 }
