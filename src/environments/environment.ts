@@ -7,7 +7,7 @@ export const environment = {
 
   // User endpoints
   register:"http://localhost:3000/users/register",
-  login:"http://localhost:3000/users/logn",
+  login:"http://localhost:3000/users/login",
 
   // Posts endpoint
   newpost:"http://localhost:3000/posts/create-post",

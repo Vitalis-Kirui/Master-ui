@@ -16,7 +16,7 @@ export class UserService {
   };
 
   // Login user
-  login(user: any) : Observable<any> {
-    return this.http.get<any>(environment.login, user);
+  login(userlogins: any) {
+    return this.http.post<any>(environment.login, userlogins);
   };
 }

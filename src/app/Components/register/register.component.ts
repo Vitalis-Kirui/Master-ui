@@ -40,18 +40,16 @@ export class RegisterComponent implements OnInit {
   registerUser() {
     const user = this.registerForm.value;
 
-    console.log(user);
+    this.userservice.register(user).subscribe(
+      (data) => {
+        console.log(data);
 
-    this.userservice.register(user)
-        .subscribe(data =>{
-          console.log(data);
-
-          // Redirecting to login in page
-          this.router.navigate(['login']);
-        },
-        error =>{
-          console.log(error.message);
-        });
-
+        // Redirecting to login in page
+        this.router.navigate(['login']);
+      },
+      (error) => {
+        console.log(error.message);
+      }
+    );
   }
 }

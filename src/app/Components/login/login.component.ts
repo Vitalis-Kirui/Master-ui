@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,11 @@ export class LoginComponent implements OnInit {
   // Form variables
   loginForm!: FormGroup;
 
-  constructor(private router: Router, private fbService: FormBuilder) {}
+  constructor(
+    private router: Router,
+    private fbService: FormBuilder,
+    private userservice: UserService
+  ) {}
 
   // Go to register page
   gotoregister() {
@@ -28,6 +33,18 @@ export class LoginComponent implements OnInit {
 
   // Login function
   loginUser() {
-    console.log(this.loginForm.value);
+    const userlogins = this.loginForm.value;
+
+    this.userservice.login(userlogins).subscribe(
+      (data) => {
+        console.log(data);
+
+        // Redirecting to home page
+        this.router.navigate(['']);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
