@@ -22,10 +22,15 @@
             <div class="d-flex align-items-center mt-2">
                 <ul>
                     <li class="navbar-nav">
-                        <a class="nav-link" routerLink="" routerLinkActive="active">Post</a>
-                        <a class="nav-link" routerLink="verify" routerLinkActive="active">Account</a>
-                        <a class="nav-link" routerLink="login" routerLinkActive="active">Login</a>
-                        <a class="nav-link" routerLink="register" routerLinkActive="active">Register</a>
+                        <a class="nav-link" routerLink="" routerLinkActive="active" *ngIf="service.loggedIn">Post</a>
+                        <a class="nav-link" routerLink="verify" routerLinkActive="active"
+                            *ngIf="service.loggedIn">Account</a>
+                        <a class="nav-link" style="cursor: pointer;" (click)="logout()"
+                            *ngIf="service.loggedIn">Logout</a>
+                        <a class="nav-link" routerLink="login" routerLinkActive="active"
+                            *ngIf="!service.loggedIn">Login</a>
+                        <a class="nav-link" routerLink="register" routerLinkActive="active"
+                            *ngIf="!service.loggedIn">Register</a>
                     </li>
                 </ul>
 
