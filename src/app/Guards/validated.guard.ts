@@ -16,7 +16,7 @@ export class ValidatedGuard implements CanActivate {
     if (this.service.loggedIn()) {
       return true;
     } else {
-      this.router.navigate(['authentications/login']);
+      this.router.navigate(['/login']);
       return false;
     }
   }
