@@ -6,15 +6,15 @@ export const environment = {
   production: false,
 
   // User endpoints
-  register:"http://localhost/users/register",
-  login:"http://localhost/users/logn",
+  register:"http://localhost:3000/users/register",
+  login:"http://localhost:3000/users/logn",
 
   // Posts endpoint
-  newpost:"http://localhost/posts/create-post",
-  getallpost:"http://localhost/posts/all-posts",
+  newpost:"http://localhost:3000/posts/create-post",
+  getallpost:"http://localhost:3000/posts/all-posts",
 
   // Comments endpoints
-  createcomment:"http://localhost/comments/create-comment",
+  createcomment:"http://localhost:3000/comments/create-comment",
 
 };
 
