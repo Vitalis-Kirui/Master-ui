@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         console.log(data);
 
         // Setting token in LocalStorage
-        localStorage.setItem('token',data.token);
+        localStorage.setItem('token', data.token);
 
         // Redirecting to home page
         this.router.navigate(['']);
