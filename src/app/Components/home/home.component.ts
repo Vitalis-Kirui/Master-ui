@@ -12,6 +12,9 @@ export class HomeComponent implements OnInit {
   postForm!: FormGroup;
   selectedImage!: File;
 
+  // Posts array
+  allposts: any = [];
+
   constructor(
     private fbService: FormBuilder,
     private postservice: PostService
@@ -23,6 +26,20 @@ export class HomeComponent implements OnInit {
       caption: [''],
       image: [null],
     });
+
+    // Fetching all the posts
+    this.postservice.getallposts()
+        .subscribe(data => {
+          console.log(data);
+
+          this.allposts = data.posts;
+
+        },
+        error =>{
+          console.log(error);
+        }
+        )
+
   }
 
   // Handle file input change

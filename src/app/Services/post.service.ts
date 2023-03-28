@@ -15,4 +15,9 @@ export class PostService {
     return this.http.post<any>(environment.newpost, post);
   }
 
+  // Get all the posts
+  getallposts():Observable<any> {
+    return this.http.get<any>(environment.getallpost);
+  };
+
 }
