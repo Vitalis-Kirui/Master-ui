@@ -14,7 +14,8 @@
             <!-- Image -->
             <div class="form-group mb-1 my-3">
                 <label for="">Attach Image</label>
-                <input type="file" class="form-control" (change)="onFileSelected($event)" name="image" formControlName="image">
+                <input type="file" class="form-control" (change)="onFileSelected($event)" name="image"
+                    formControlName="image">
             </div>
 
             <!-- Post button -->
@@ -32,13 +33,23 @@
     <hr>
 
     <div class="col-md-8 mx-auto py-3">
-        
+
 
         <div class="text-center">
             <h1>All Post</h1>
             <hr>
         </div>
-        
+
+        <div *ngFor="let post of allposts">
+            <h2>{{ post.caption }}</h2>
+            <p>{{ post.createdAt }}</p>
+            <p>{{ post.image }}</p>
+            <img [src]="getSafeImageUrl(post.image)" alt="post image">
+            <ul>
+                <li *ngFor="let comment of post.comments">{{ comment.body }}</li>
+            </ul>
+        </div>
+
     </div>
 
 </div>

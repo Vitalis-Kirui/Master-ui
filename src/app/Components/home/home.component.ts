@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PostService } from 'src/app/Services/post.service';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +15,12 @@ export class HomeComponent implements OnInit {
 
   // Posts array
   allposts: any = [];
+  comments: any = [];
 
   constructor(
     private fbService: FormBuilder,
-    private postservice: PostService
+    private postservice: PostService,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit() {
@@ -28,18 +31,19 @@ export class HomeComponent implements OnInit {
     });
 
     // Fetching all the posts
-    this.postservice.getallposts()
-        .subscribe(data => {
-          console.log(data);
+    this.postservice.getallposts().subscribe(
+      (data) => {
+        this.allposts = data;
+        console.log(this.allposts);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 
-          this.allposts = data.posts;
-
-        },
-        error =>{
-          console.log(error);
-        }
-        )
-
+  getSafeImageUrl(imageUrl: string): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustUrl(imageUrl);
   }
 
   // Handle file input change
