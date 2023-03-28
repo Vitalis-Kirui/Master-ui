@@ -10,6 +10,7 @@ import { PostService } from 'src/app/Services/post.service';
 export class HomeComponent implements OnInit {
   // Form Variables
   postForm!: FormGroup;
+  selectedImage!: File;
 
   constructor(
     private fbService: FormBuilder,
@@ -20,29 +21,31 @@ export class HomeComponent implements OnInit {
     // Form model
     this.postForm = this.fbService.group({
       caption: [''],
-      image: [''],
+      image: [null],
     });
   }
 
-  // Submit
-  createPost() {
-
-    // Create a FormData object and add the form data
-  const formData = new FormData();
-  formData.append('caption', this.postForm.get('caption')?.value);
-  formData.append('image', this.postForm.get('image')?.value);
-
-  // Call the createPost() method in the PostService to send the post data to the server
-  this.postservice.createpost(formData).subscribe(
-    (response) => {
-      console.log('Post created successfully:', response);
-      // Reset the form after the post is created
-      this.postForm.reset();
-    },
-    (error) => {
-      console.error('Error creating post:', error);
+  // Handle file input change
+  onFileSelected(event: Event) {
+    const fileInput = event.target as HTMLInputElement;
+    if (fileInput.files && fileInput.files[0]) {
+      this.selectedImage = fileInput.files[0];
     }
-  );
+  }
 
+  // Submit form
+  createPost() {
+    const formData = new FormData();
+    formData.append('caption', this.postForm.get('caption')!.value);
+    formData.append('image', this.selectedImage);
+
+    this.postservice.createpost(formData).subscribe(
+      (response) => {
+        console.log('Post created successfully:', response);
+        // Reset form
+        this.postForm.reset();
+      },
+      (error) => [console.log(error)]
+    );
   }
 }

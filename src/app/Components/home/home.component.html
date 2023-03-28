@@ -14,7 +14,7 @@
             <!-- Image -->
             <div class="form-group mb-1 my-3">
                 <label for="">Attach Image</label>
-                <input type="file" class="form-control" name="image" formControlName="image">
+                <input type="file" class="form-control" (change)="onFileSelected($event)" name="image" formControlName="image">
             </div>
 
             <!-- Post button -->
