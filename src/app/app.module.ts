@@ -11,6 +11,7 @@ import { VerifyComponent } from './Components/verify/verify.component';
 import { SinglePostComponent } from './Components/single-post/single-post.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
     LoginComponent,
     VerifyComponent,
     SinglePostComponent,
-    NavbarComponent
+    NavbarComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

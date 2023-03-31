@@ -9,7 +9,6 @@ import { UserService } from '../Services/user.service';
   providedIn: 'root',
 })
 export class ValidatedGuard implements CanActivate {
-
   constructor(private router: Router, private service: UserService) {}
 
   canActivate(): any {
